@@ -3,30 +3,28 @@
 [![npm version](https://badge.fury.io/js/%40vultr%2Fvultr-node.svg)](https://badge.fury.io/js/%40vultr%2Fvultr-node)
 [![license](https://img.shields.io/github/license/vultr/vultr-node)](https://github.com/vultr/vultr-node/blob/master/LICENSE.md)
 
-# vultr-node
+# cryptfire-node
 
-Official Vultr client node module.
+Official Cryptfire client node module.
 
 ## Installation
 
 ```sh
-npm install @vultr/vultr-node
+npm install @cryptfire/cryptfire-node
 ```
 
 ## Usage
 
-Vultr uses a PAT (Personal Access Token) to interact/authenticate with the APIs. An API Key can be generated and acquired from the API menu in [settings](https://my.vultr.com/settings/#settingsapi).
+An API Key can be generated and acquired with curl, or the Cryptfire CLI.
 
 ### Initialize
 
 ```js
-const VultrNode = require('@vultr/vultr-node')
+const cryptfireNode = require('@cryptfire/cryptfire-node')
 
 // Initialize the instance with your configuration
-const vultr = VultrNode.initialize({
-  apiKey: 'your-api-key-here',
-  baseUrl: 'https://example.com', // Optional
-  rateLimit: 600 // Optional
+const cryptfire = cryptfireNode.initialize({
+  apiKey: 'your-api-key-here'
 })
 ```
 
@@ -34,20 +32,16 @@ const vultr = VultrNode.initialize({
 
 ```js
 // Call endpoints using Promises
-vultr.account.getAccountInfo().then((response) => {
+cryptfire.account.getAccountInfo().then((response) => {
   console.log(response)
 })
 ```
 
-## Versioning
-
-This project follows [SemVer](https://semver.org/) for versioning. For the versions available, [see the tags on this repository](https://github.com/vultr/vultr-node/releases)
-
 ## Documentation
 
-This implements Vultr API V2. For documentation on all endpoints, please visit https://www.vultr.com/api/. To use Vultr API V1, please use the version of the library on the [V1 branch](https://github.com/vultr/vultr-node/tree/v1), or any version of this library before 2.0.0.
+This implements Cryptfire API V1. For documentation on all endpoints, please visit https://docs.cryptfire.io/api/. 
 
-For documentation specific to this client please visit https://vultr.github.io/vultr-node
+For documentation specific to this client please visit the Github wiki.
 
 ## Contributing
 
