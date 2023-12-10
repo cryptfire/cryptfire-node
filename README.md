@@ -5,7 +5,7 @@
 
 # cryptfire-node
 
-Official Cryptfire client node module.
+Official Cryptfire client node module. We now run our own high-performance, well-structured, Open Source NodeJS API and provide Cloud infrastructure for KVM Servers on 6 geographically distributed Bare Metal Nodes. We also rent out Bare Metal Nodes from Colocations around the world.
 
 ## Installation
 
@@ -23,16 +23,29 @@ An API Key can be generated and acquired with curl, or the Cryptfire CLI.
 const cryptfireNode = require('@cryptfire/cryptfire-node')
 
 // Initialize the instance with your configuration
-const cryptfire = cryptfireNode.initialize({
-  apiKey: 'your-api-key-here'
-})
+const cryptfire = cryptfireNode.initialize();
+
+// export this as CRYPTFIRE_API_KEY to .bashrc
+cryptfire.account.registerAccount().then((response) =>
+  console.log(apiKey);
+);
 ```
 
 ### Calling Endpoints
 
 ```js
-// Call endpoints using Promises
+// Get Account Info
 cryptfire.account.getAccountInfo().then((response) => {
+  console.log(response)
+})
+
+// Get Ethereum Wallet
+cryptfire.funding.getECryptoWallets().then((response) => {
+  console.log(response)
+})
+
+// Deploy a minimal cloud server
+cryptfire.cloud.deployMinimalInstance().then((response) => {
   console.log(response)
 })
 ```
@@ -51,7 +64,11 @@ Feel free to send pull requests our way! Please see the [contributing guidelines
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details.
 
-## Authors
+## Cryptfire Authors
+
+- [**z**](https://github.com/zdanl)
+
+## Vultr Authors
 
 - [**Spencer Kordecki**](https://github.com/spencerkordecki)
 - [**Fady Farid**](https://github.com/afady)
